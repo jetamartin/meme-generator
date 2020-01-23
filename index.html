@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Meme Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+  <h1>Meme Generator</h1>
+  <form action="">
+    <h4>Fill out the form to create a custom meme:</h4>
+    <div>
+      <label for="img-url-input">Image URL:</label>
+      <input id="img-url-input" type="text" placeholder="What is the url for your meme image?">
+    </div>
+    <div>
+      <label for="top-text-input">Top Text:</label>
+      <input id="top-text-input" type="text" placeholder="[Optional] What text do you want at top of meme?">
+    </div>
+    <div>
+      <label for="bottom-text-input">Bottom Text:</label>
+      <input id="bottom-text-input" type="text" placeholder="[Optional] What text do you want at bottom of meme?">
+    </div>
+    <div id="submit-btn">
+      <input type="submit">
+    </div>
+   </form>
+
+</div>
+
+
+<div id="meme-display-area">
+  <!-- TEST DATA TO BE DELETED  -->
+  <!-- <div class="memeHolder">
+    <div class="meme">
+      <div class="top-meme-text meme-text">Top Text</div>
+      <img src="https://pbs.twimg.com/media/EBjeelwXkAAy2YH?format=jpg&name=900x900" alt="">
+      <div class="bottom-meme-text meme-text">Bottom Text</div>
+      <div class="overlay"></div>
+      <div class="button"><span>X</span></div>
+    </div>
+  </div>
+  <div class="memeHolder">
+    <div class="meme">
+      <div class="top-meme-text meme-text">Top Text</div>
+      <img src="https://pbs.twimg.com/ext_tw_video_thumb/1172250341842280449/pu/img/BxAg-X4UckjYEdEB?format=jpg&name=900x900" alt="">
+      <div class="bottom-meme-text meme-text">Bottom Text</div>
+    </div>
+  </div>
+
+  <div class="memeHolder">
+    <div class="meme">
+      <div class="top-meme-text meme-text">Top Text</div>
+      <img src="https://i.pinimg.com/564x/c7/0a/47/c70a47f53112f98fb5f50e4c6a3b0ccc.jpg" alt="">
+      <div class="bottom-meme-text meme-text">Bottom Text</div>
+    </div>
+  </div>
+
+  <div class="memeHolder">
+    <div class="meme">
+      <div class="top-meme-text meme-text">Top Text</div>
+      <img src="https://i.pinimg.com/564x/55/54/01/5554015289d6345c8ad5a47c8aa764d6.jpg" alt="">
+      <div class="bottom-meme-text meme-text">Bottom Text</div>
+    </div>
+  </div>
+
+  <div class="memeHolder">
+      <div class="meme">
+        <div class="top-meme-text meme-text">Top Text</div>
+        <img src="https://i.pinimg.com/474x/d3/51/d3/d351d39fd142bb281fccde01997b1664.jpg" alt="">
+        <div class="bottom-meme-text meme-text">Bottom Text</div>
+      </div>
+    </div>
+
+
+  <div class="memeHolder">
+    <div class="meme">
+      <div class="top-meme-text meme-text">Top Text</div>
+      <img src="data:image/jpeg;base64,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
+" alt="">
+      <div class="bottom-meme-text meme-text">Bottom Text</div>
+    </div>
+  </div> -->
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
